@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: "https://bleep-al.herokuapp.com",
         contentTypes: [
           'post',
           'category',
