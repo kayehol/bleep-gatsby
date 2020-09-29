@@ -60,7 +60,7 @@ const Post = ({ data }) => {
 }
 
 export const query = graphql`
-  query($id: Int!) {
+  query($id: String) {
     strapiPost(strapiId: { eq: $id }) {
       strapiId
       titulo
@@ -77,6 +77,7 @@ export const query = graphql`
         }
       }
     }
+    
   }
 `
 

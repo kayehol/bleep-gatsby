@@ -63,7 +63,7 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allStrapiPost {
+    allStrapiPost(sort: {order: DESC, fields: createdAt}) {
       edges {
         node {
           categories {

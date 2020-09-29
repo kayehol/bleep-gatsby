@@ -1,3 +1,4 @@
+/*
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
@@ -72,18 +73,13 @@ export const query = graphql`
             name
           }
           data(formatString: "DD/MM/YYYY")
-          imagem {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
         }
       }
     }
     category: strapiCategory(strapiId: { eq: $id }) {
       name
     }
+    image
   }
 `
+*/
