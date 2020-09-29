@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog articles pages.
   const posts = result.data.allStrapiPost.edges
-  const categorias = result.data.allStrapiCategory.edges
+  //const categorias = result.data.allStrapiCategory.edges
 
   posts.forEach((post, index) => {
     createPage({
@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
+  /*
   categorias.forEach((categoria, index) => {
     createPage({
       path: `/categoria/${categoria.node.strapiId}`,
@@ -48,4 +48,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+  */
 }
+
