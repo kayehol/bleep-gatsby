@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,6 +18,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    /*
     {
       resolve: "gatsby-source-strapi",
       options: {
@@ -27,7 +29,8 @@ module.exports = {
         ],
         queryLimit: 1000,
       },
-    },
+    }
+    */,
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
