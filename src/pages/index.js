@@ -9,14 +9,13 @@ const Feed = styled.div`
   display: flex;
   justify-content: center;
   font-family: Roboto, sans-serif;
-  padding-top: 3em;
   font-size: 0.9em;
   color: #fff;
   ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    margin: 0;
+    width: 100%;
     padding: 0;
   }
   #data,
@@ -30,8 +29,12 @@ const Feed = styled.div`
     font-family: "Roboto Mono", sans-serif;
   }
   #conteudo {
+    line-height: 1.3;
     padding: 2em 0;
-    line-height: 1.2;
+  }
+  iframe {
+    width: 100%;
+    padding: 2em 0;
   }
   @media screen and (min-width: 720px) {
     padding: 0 20em;

@@ -13,7 +13,8 @@ const PostWrapper = styled.div`
   padding: 0 2em;
   display: flex;
   flex-direction: column;
-  #data {
+  #data, #categoria {
+    font-family: "Roboto Mono", sans-serif;
     font-size: 0.8em;
     color: grey;
   }
@@ -28,6 +29,10 @@ const PostWrapper = styled.div`
   #btVoltar {
     width: 15%;
     transform: scaleX(-1);
+  }
+  iframe {
+    width: 100%;
+    padding: 2em 0;
   }
   @media screen and (min-width: 720px) {
     padding: 0 20em;
