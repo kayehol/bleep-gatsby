@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 //import Img from "gatsby-image"
@@ -45,11 +45,8 @@ const IndexPage = ({ data }) => (
         {data.allMarkdownRemark.edges.map(post => (
           <li key={post.node.id}>
             <div id="post">
-              <Link to={post.frontmatter.slug}>
-                <h3 id="titulo">{post.node.frontmatter.title}</h3>
-              </Link>
+              <h3 id="titulo">{post.node.frontmatter.title}</h3>
               <h4 id="data">{post.node.frontmatter.date}</h4>
-
               <div id="conteudo">{post.node.rawMarkdownBody}</div>
               <h4 id="categoria">{post.node.frontmatter.description}</h4>
             </div>
