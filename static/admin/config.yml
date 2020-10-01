@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: kayehol/bleep-gatsby
+  base_url: https://api.netlify.com 
 
 media_folder: static/img
 public_folder: /img
