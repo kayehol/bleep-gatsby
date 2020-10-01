@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
-//import Img from "gatsby-image"
+import Img from "gatsby-image"
 import "typeface-roboto"
 
 const Feed = styled.div`
@@ -45,13 +45,19 @@ const IndexPage = ({ data }) => (
         {data.allMarkdownRemark.edges.map(post => (
           <li key={post.node.id}>
             <div id="post">
-              <h3 id="titulo">{post.node.frontmatter.title}</h3>
+              <Link to={post.node.fields.slug}>
+                <h3 id="titulo">{post.node.frontmatter.title}</h3>
+              </Link>
               <h4 id="data">{post.node.frontmatter.date}</h4>
-              <div id="conteudo">{post.node.rawMarkdownBody}</div>
+              {post.node.frontmatter.thumbnail !== null &&
+                <Img fluid={post.node.frontmatter.thumbnail.childImageSharp.fluid} />
+              }
+              <div id="conteudo" dangerouslySetInnerHTML={{__html: post.node.rawMarkdownBody}} />
               <h4 id="categoria">{post.node.frontmatter.description}</h4>
             </div>
           </li>
-        ))}
+        ))
+        }
       </ul>
     </Feed>
   </Layout>
@@ -65,10 +71,20 @@ export const query = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "DD/MM/YYYY")
             description
             title
+            thumbnail {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           rawMarkdownBody
         }

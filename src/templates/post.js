@@ -1,4 +1,3 @@
-/*
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
@@ -43,34 +42,35 @@ const PostWrapper = styled.div`
 `
 
 const Post = ({ data }) => {
-  const post = data.strapiPost
+  const post = data.markdownRemark
   return (
     <Layout>
       <PostWrapper>
         <Link to="/">
           <img id="btVoltar" src={arrow} alt="voltar" />
         </Link>
-        <h3 id="titulo">{post.titulo}</h3>
-        <h4 id="data">{post.data}</h4>
-        <Img fluid={post.imagem.childImageSharp.fluid} />
-        <div id="conteudo">{post.conteudo}</div>
-        <h4 id="categoria">{post.categories.name}</h4>
+        <h3 id="titulo">{post.frontmatter.title}</h3>
+        <h4 id="data">{post.frontmatter.date}</h4>
+        {post.frontmatter.thumbnail !== null &&
+          <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
+        }
+        <div id="conteudo" dangerouslySetInnerHTML={{__html: post.html}} />
+        <h4 id="categoria">{post.frontmatter.tags}</h4>
       </PostWrapper>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query($id: String) {
-    strapiPost(strapiId: { eq: $id }) {
-      strapiId
-      titulo
-      conteudo
-      categories {
-        name
-      }
-      data(formatString: "DD/MM/YYYY")
-      imagem {
+query($slug: String!)  {
+  markdownRemark(fields: {slug: {eq: $slug}}) {
+    html
+    frontmatter {
+      date(formatString: "DD/MM/YYYY")
+      description
+      tags
+      title
+      thumbnail {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
@@ -78,9 +78,12 @@ export const query = graphql`
         }
       }
     }
-    
+    fields {
+      slug
+    }
   }
+}
+
 `
 
 export default Post
-*/

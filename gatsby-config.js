@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-netlify-cms`,
+    "gatsby-plugin-slug",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,21 +33,20 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
-    /*
-    {
-      resolve: "gatsby-source-strapi",
-      options: {
-        apiURL: process.env.API_URL || "https://bleep-strapi.herokuapp.com",
-        contentTypes: [
-          'post',
-          'category',
-        ],
-        queryLimit: 1000,
-      },
-    }
-    */
     "gatsby-transformer-sharp",
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 700,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,

@@ -1,24 +1,22 @@
-/*
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(
     `
-      query {
-        allStrapiPost {
-          edges {
-            node {
-              strapiId
-            }
-          }
-        }
-        allStrapiCategory {
-          edges {
-            node {
-              strapiId
+    query {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
             }
           }
         }
       }
+    }
     `
   )
 
@@ -26,16 +24,12 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog articles pages.
-  const posts = result.data.allStrapiPost.edges
-  //const categorias = result.data.allStrapiCategory.edges
-
-  posts.forEach((post, index) => {
+  result.data.allMarkdownRemark.edges.forEach(({node}) => {
     createPage({
-      path: `/post/${post.node.strapiId}`,
+      path: node.fields.slug,
       component: require.resolve("./src/templates/post.js"),
       context: {
-        id: post.node.strapiId,
+        slug: node.fields.slug,
       },
     })
   })
@@ -49,6 +43,5 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  
+  */
 }
-*/
