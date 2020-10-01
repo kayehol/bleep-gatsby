@@ -62,26 +62,5 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 
 export const query = graphql`
-  query {
-    allStrapiPost(sort: {order: DESC, fields: createdAt}) {
-      edges {
-        node {
-          categories {
-            name
-          }
-          conteudo
-          data(formatString: "DD/MM/YYYY")
-          strapiId
-          titulo
-          imagem {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  
 `
