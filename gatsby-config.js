@@ -30,7 +30,7 @@ module.exports = {
         queryLimit: 1000,
       },
     }
-    */,
+    */
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
