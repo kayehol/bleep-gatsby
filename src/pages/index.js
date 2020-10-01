@@ -49,12 +49,12 @@ const IndexPage = ({ data }) => (
                 <h3 id="titulo">{post.node.frontmatter.title}</h3>
               </Link>
               <h4 id="data">{post.node.frontmatter.date}</h4>
-              
+
               <div id="conteudo">{post.node.rawMarkdownBody}</div>
               <h4 id="categoria">{post.node.frontmatter.description}</h4>
             </div>
           </li>
-        ))
+        ))}
       </ul>
     </Feed>
   </Layout>
@@ -63,17 +63,19 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 
 export const query = graphql`
-allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
-  edges {
-    node {
-      id
-      frontmatter {
-        date(formatString: "DD/MM/YYYY")
-        description
-        title
+  query {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date(formatString: "DD/MM/YYYY")
+            description
+            title
+          }
+          rawMarkdownBody
+        }
       }
-      rawMarkdownBody
     }
   }
-}
 `
