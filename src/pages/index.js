@@ -19,7 +19,8 @@ const Feed = styled.div`
     margin: 0;
     padding: 0;
   }
-  #data, #categoria {
+  #data,
+  #categoria {
     font-size: 0.8em;
     color: grey;
     font-family: "Roboto Mono", sans-serif;
@@ -41,19 +42,20 @@ const IndexPage = ({ data }) => (
   <Layout>
     <Feed>
       <ul>
-        {data.allStrapiPost.edges.map(post => (
-          <li key={post.node.strapiId}>
+        {data.allMarkdownRemark.edges.map(post => (
+          <li key={post.node.id}>
             <div id="post">
-              <Link to={`/post/${post.node.strapiId}`}>
-                <h3 id="titulo">{post.node.titulo}</h3>
+              <Link to={post.frontmatter.slug}>
+                <h3 id="titulo">{post.node.frontmatter.title}</h3>
               </Link>
-              <h4 id="data">{post.node.data}</h4>
-              <Img fluid={post.node.imagem.childImageSharp.fluid} />
-              <div id="conteudo">{post.node.conteudo}</div>
-              <h4 id="categoria">{post.node.categories[0].name}</h4>
+              <h4 id="data">{post.node.frontmatter.date}</h4>
+              <Img fluid={} />
+              <div id="conteudo">{post.node.rawMarkdownBody}</div>
+              <h4 id="categoria">{post.node.frontmatter.description}</h4>
             </div>
           </li>
-        ))}
+        ))
+        .filter(post => !!post.node.frontmatter.date)}
       </ul>
     </Feed>
   </Layout>
@@ -62,5 +64,17 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 
 export const query = graphql`
-  
+allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
+  edges {
+    node {
+      id
+      frontmatter {
+        date(formatString: "DD/MM/YYYY")
+        description
+        title
+      }
+      rawMarkdownBody
+    }
+  }
+}
 `
