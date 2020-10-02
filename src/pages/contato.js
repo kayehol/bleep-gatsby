@@ -21,7 +21,7 @@ const Contato = () => {
     return (
         <Layout>
             <Wrapper>
-                <p>Mande seu material pra gente! <a>bleep@gmail.com</a></p>
+                <p>Mande seu material pra gente! bleep@gmail.com</p>
             </Wrapper>
         </Layout>
     )

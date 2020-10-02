@@ -56,7 +56,7 @@ const IndexPage = ({ data }) => (
                 <Img fluid={post.node.frontmatter.thumbnail.childImageSharp.fluid} />
               }
               <div id="conteudo" dangerouslySetInnerHTML={{__html: post.node.rawMarkdownBody}} />
-              <h4 id="categoria">{post.node.frontmatter.description}</h4>
+              <h4 id="categoria">{post.node.frontmatter.tags}</h4>
             </div>
           </li>
         ))
@@ -79,7 +79,7 @@ export const query = graphql`
           }
           frontmatter {
             date(formatString: "DD/MM/YYYY")
-            description
+            tags
             title
             thumbnail {
               childImageSharp {

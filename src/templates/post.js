@@ -72,7 +72,6 @@ query($slug: String!)  {
     html
     frontmatter {
       date(formatString: "DD/MM/YYYY")
-      description
       tags
       title
       thumbnail {
