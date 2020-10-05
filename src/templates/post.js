@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import "typeface-roboto"
 import "typeface-roboto-mono"
 import arrow from "../images/arrow.svg"
+import SEO from "../components/seo"
 
 const PostWrapper = styled.div`
   color: #fff;
@@ -48,8 +49,17 @@ const PostWrapper = styled.div`
 
 const Post = ({ data }) => {
   const post = data.markdownRemark
+  const image = post.frontmatter.thumbnail
+    ? post.frontmatter.thumbnail.childImageSharp.resize
+    : null
+
   return (
     <Layout>
+      <SEO 
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        image={image}
+      />
       <PostWrapper>
         <Link to="/">
           <img id="btVoltar" src={arrow} alt="voltar" />
@@ -85,6 +95,7 @@ query($slug: String!)  {
     fields {
       slug
     }
+    excerpt
   }
 }
 

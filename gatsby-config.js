@@ -7,6 +7,8 @@ module.exports = {
     title: "Bleep",
     description: "Música alternativa",
     author: "Kaye Holanda",
+    keywords: "bleepnews, news, bleep",
+    siteUrl: "https://bleep.news"
   },
   plugins: [
     "gatsby-plugin-react-helmet",

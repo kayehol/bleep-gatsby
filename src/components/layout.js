@@ -4,9 +4,8 @@ import styled from "styled-components"
 import "typeface-roboto"
 import "typeface-roboto-mono"
 import logo from "../images/bleep-logo3.svg"
-import logoQuad from "../images/bleep-logo2.png"
 import "./layout.css"
-import { Helmet } from 'react-helmet'
+
 
 const Nav = styled.div`
   display: flex;
@@ -61,12 +60,6 @@ const Nav = styled.div`
 const Layout = ({ children }) => {
   return (
     <Nav>
-      <Helmet>
-        <meta charSet='utf-8' />
-        <meta lang='pt-br' />
-        <meta property='og:image' content={logoQuad} />
-        <meta name='description' content='Bleep' />
-      </Helmet>
       <div id="header">
         <div id="logo">
           <Link to="/">

@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import "typeface-roboto"
+import SEO from "../components/seo"
 
 const Feed = styled.div`
   display: flex;
@@ -43,6 +44,7 @@ const Feed = styled.div`
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <SEO title="Bleep News" />
     <Feed>
       <ul>
         {data.allMarkdownRemark.edges.map(post => (
