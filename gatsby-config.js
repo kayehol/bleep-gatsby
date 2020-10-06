@@ -15,6 +15,12 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-slug",
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-179768571-1",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
