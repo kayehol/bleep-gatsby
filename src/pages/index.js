@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import "typeface-roboto"
 import SEO from "../components/seo"
+import Helmet from "react-helmet"
 
 const Feed = styled.div`
   display: flex;
@@ -45,6 +46,14 @@ const Feed = styled.div`
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Bleep News" />
+    <Helmet>
+      <script>{`
+         !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
+         analytics.load("Cr7oh9BjNZl9T88BsTfs7HipoVcAlDZG");
+         analytics.page();
+         }}();
+      `}</script>
+    </Helmet>
     <Feed>
       <ul>
         {data.allMarkdownRemark.edges.map(post => (
