@@ -31,7 +31,7 @@ const Nav = styled.div`
     padding: 0;
   }
   ul li {
-    padding: 0 2em;
+    padding: 0 1em;
   }
   a {
     color: #fff;

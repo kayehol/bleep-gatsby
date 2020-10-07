@@ -11,7 +11,7 @@ import SEO from "../components/seo"
 const PostWrapper = styled.div`
   color: #fff;
   font-family: Roboto, sans-serif;
-  padding: 0 2em;
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
   #data, #categoria {
@@ -24,7 +24,7 @@ const PostWrapper = styled.div`
     font-family: "Roboto Mono", sans-serif;
   }
   #conteudo {
-    padding: 2em 0;
+    padding: 0;
     line-height: 1.2;
   }
   #btVoltar {
@@ -33,7 +33,7 @@ const PostWrapper = styled.div`
   }
   iframe {
     width: 100%;
-    padding: 2em 0;
+    padding: 1em 0;
   }
   @media screen and (min-width: 720px) {
     padding: 0 20em;
@@ -43,6 +43,9 @@ const PostWrapper = styled.div`
     }
     #btVoltar {
       width: 10%;
+    }
+    #conteudo {
+      line-height: 1.4;
     }
   }
 `

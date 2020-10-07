@@ -31,14 +31,18 @@ const Feed = styled.div`
   }
   #conteudo {
     line-height: 1.3;
-    padding: 2em 0;
+    padding: 0;
   }
   iframe {
     width: 100%;
-    padding: 2em 0;
+    padding: 1em 0;
   }
   @media screen and (min-width: 720px) {
-    padding: 0 20em;
+    padding: 0 22em;
+    line-height: 1.6;
+    #categoria {
+      padding-bottom: 4em;
+    }
   }
 `
 
