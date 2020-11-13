@@ -25,6 +25,7 @@ const Contato = () => {
                 <p><a href='mailto:emailbleep@gmail.com'>emailbleep@gmail.com</a></p>
                 <p><a href='https://instagram.com/bleepnews'>Instagram</a></p>
                 <p><a href='https://www.youtube.com/channel/UC1iG06LxlvkRYhfK1w-qP8Q'>YouTube</a></p>
+                <p><a href='https://www.twitter.com/bleep_news'>Twitter</a></p>
             </Wrapper>
         </Layout>
     )

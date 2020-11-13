@@ -11,13 +11,15 @@ import SEO from "../components/seo"
 const PostWrapper = styled.div`
   color: #fff;
   font-family: Roboto, sans-serif;
-  padding: 0 1em;
+  padding: 2em 1em;
   display: flex;
   flex-direction: column;
   #data, #categoria {
     font-family: "Roboto Mono", sans-serif;
     font-size: 0.8em;
     color: grey;
+    padding: 0;
+    margin: 0;
   }
   #titulo {
     text-decoration: none;
@@ -36,7 +38,7 @@ const PostWrapper = styled.div`
     padding: 1em 0;
   }
   @media screen and (min-width: 720px) {
-    padding: 0 20em;
+    padding: 1em 20em;
     img {
       margin: 0;
       padding: 0;
@@ -46,6 +48,9 @@ const PostWrapper = styled.div`
     }
     #conteudo {
       line-height: 1.4;
+    }
+    #titulo {
+      font-size: 1.4em;
     }
   }
 `

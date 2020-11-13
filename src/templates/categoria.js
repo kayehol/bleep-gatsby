@@ -31,9 +31,7 @@ const CategoriaWrapper = styled.div`
 `
 
 const Categoria = ({ data }) => {
-  const posts = data.posts.edges
-  const category = data.category.name
-  console.log(posts)
+  
   return (
     <Layout>
       <CategoriaWrapper>
@@ -60,26 +58,26 @@ const Categoria = ({ data }) => {
 export default Categoria
 
 export const query = graphql`
-  query Category($id: Int!) {
-    posts: allStrapiPost(
-      filter: { categories: { elemMatch: { id: { eq: $id } } } }
-    ) {
-      edges {
-        node {
-          strapiId
-          titulo
-          conteudo
-          categories {
-            name
+query($id: Int!)  {
+  markdownRemark(fields: {slug: {eq: $slug}}) {
+    html
+    frontmatter {
+      date(formatString: "DD/MM/YYYY")
+      tags
+      title
+      thumbnail {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
           }
-          data(formatString: "DD/MM/YYYY")
         }
       }
     }
-    category: strapiCategory(strapiId: { eq: $id }) {
-      name
+    fields {
+      slug
     }
-    image
+    excerpt
   }
+}
 `
 */

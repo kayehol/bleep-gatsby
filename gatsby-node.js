@@ -13,6 +13,9 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -24,6 +27,8 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
+  
+
   result.data.allMarkdownRemark.edges.forEach(({node}) => {
     createPage({
       path: node.fields.slug,
@@ -33,8 +38,10 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
   /*
-  categorias.forEach((categoria, index) => {
+  result.data.allMarkdownRemark.edges.forEach(() => {
     createPage({
       path: `/categoria/${categoria.node.strapiId}`,
       component: require.resolve("./src/templates/categoria.js"),
@@ -43,5 +50,5 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  */
 }
+*/

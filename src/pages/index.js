@@ -19,6 +19,9 @@ const Feed = styled.div`
     width: 100%;
     padding: 0;
   }
+  ul li {
+    border-bottom: 1px solid #808080;
+  }
   #data,
   #categoria {
     font-size: 0.8em;
@@ -41,7 +44,10 @@ const Feed = styled.div`
     padding: 0 22em;
     line-height: 1.6;
     #categoria {
-      padding-bottom: 4em;
+      padding-bottom: 1em;
+    }
+    img {
+      padding-bottom: 1em;
     }
   }
 `
