@@ -14,7 +14,7 @@ const Nav = styled.div`
   font-family: "Roboto Mono", sans-serif;
   font-weight: bold;
   font-size: 1.3em;
-  background-color: #000;
+  background-color: #101010;
 
   #header {
     display: flex;
@@ -38,9 +38,17 @@ const Nav = styled.div`
   }
   a:hover {
     text-decoration: underline;
+    color: #6C8784;
   }
   #logo {
     width: 40%;
+  }
+  #logo:hover {
+    scale: 1.1;
+    transition: scale 0.5s;
+  }
+  main {
+    padding: 2em 0 4em 0;
   }
   @media screen and (min-width: 720px) {
     img {

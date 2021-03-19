@@ -11,7 +11,7 @@ import SEO from "../components/seo"
 const PostWrapper = styled.div`
   color: #fff;
   font-family: Roboto, sans-serif;
-  padding: 2em 1em;
+  padding: 4em 1em;
   display: flex;
   flex-direction: column;
   #data, #categoria {
@@ -29,9 +29,12 @@ const PostWrapper = styled.div`
     padding: 0;
     line-height: 1.2;
   }
-  #btVoltar {
-    width: 15%;
+  a #btVoltar {
+    width: 5%;
     transform: scaleX(-1);
+  }
+  a #btVoltar:hover {
+    scale: 1.1;
   }
   iframe {
     width: 100%;
