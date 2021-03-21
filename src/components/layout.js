@@ -48,7 +48,8 @@ const Nav = styled.div`
     transition: scale 0.5s;
   }
   main {
-    padding: 2em 0 4em 0;
+    padding-bottom: 4em;
+    width: auto;
   }
   @media screen and (min-width: 720px) {
     img {

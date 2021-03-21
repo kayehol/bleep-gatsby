@@ -11,7 +11,7 @@ import SEO from "../components/seo"
 const PostWrapper = styled.div`
   color: #fff;
   font-family: Roboto, sans-serif;
-  padding: 4em 1em;
+  padding: 0 1em;
   display: flex;
   flex-direction: column;
   #data, #categoria {

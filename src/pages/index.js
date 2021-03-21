@@ -2,52 +2,47 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
-import Img from "gatsby-image"
+//import Img from "gatsby-image"
 import "typeface-roboto"
 import SEO from "../components/seo"
 
 const Feed = styled.div`
   display: flex;
   justify-content: center;
-  font-family: Roboto, sans-serif;
-  font-size: 0.9em;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 1em;
   color: #fff;
   ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 0;
   }
   ul li {
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #333333;
+    padding: 0;
   }
-  #data,
-  #categoria {
+  .titulo {
+    text-decoration: underline;
+    font-family: "Roboto Mono", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  .subTitulo {
     font-size: 0.8em;
     color: grey;
     font-family: "Roboto Mono", sans-serif;
+    line-height: 1;
   }
-  #titulo {
-    text-decoration: underline;
-    font-family: "Roboto Mono", sans-serif;
+  .post {
+    padding-top: 1em;
+    margin: 0;
+    width: auto;
   }
-  #conteudo {
-    line-height: 1.3;
-    padding: 0;
-  }
-  iframe {
-    width: 100%;
-    padding: 1em 0;
-  }
-  @media screen and (min-width: 720px) {
-    padding: 0 22em;
-    line-height: 1.6;
-    #categoria {
-      padding-bottom: 1em;
-    }
-    img {
-      padding-bottom: 1em;
+  @media screen and (max-width: 720px) {
+    font-size: 0.8em;
+    ul {
+      padding: 0 1em;
     }
   }
 `
@@ -59,16 +54,13 @@ const IndexPage = ({ data }) => (
       <ul>
         {data.allMarkdownRemark.edges.map(post => (
           <li key={post.node.id}>
-            <div id="post">
+            <div className="post">
               <Link to={post.node.fields.slug}>
-                <h3 id="titulo">{post.node.frontmatter.title}</h3>
+                <h3 className="titulo">{post.node.frontmatter.title}</h3>
               </Link>
-              <h4 id="data">{post.node.frontmatter.date}</h4>
-              {post.node.frontmatter.thumbnail !== null &&
-                <Img fluid={post.node.frontmatter.thumbnail.childImageSharp.fluid} />
-              }
-              <div id="conteudo" dangerouslySetInnerHTML={{__html: post.node.rawMarkdownBody}} />
-              <h4 id="categoria">{post.node.frontmatter.tags}</h4>
+              <div className="subTitulo">
+                <h4>{post.node.frontmatter.date} | {post.node.frontmatter.tags}</h4>
+              </div>
             </div>
           </li>
         ))
