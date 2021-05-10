@@ -23,16 +23,6 @@ const Nav = styled.div`
     align-items: center;
     justify-content: space-between;
   }
-  ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  ul li {
-    padding: 0 1em;
-  }
   a {
     color: #fff;
   }
@@ -59,9 +49,6 @@ const Nav = styled.div`
     }
     #header {
       justify-content: flex-end;
-    }
-    #logo {
-      
     }
   }
 `

@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
-//import Img from "gatsby-image"
 import "typeface-roboto"
 import SEO from "../components/seo"
 
@@ -14,7 +13,6 @@ const Feed = styled.div`
   color: #fff;
   ul {
     list-style-type: none;
-    display: flex;
     flex-direction: column;
     padding: 0;
   }
@@ -63,7 +61,7 @@ const IndexPage = ({ data }) => (
               </div>
             </div>
           </li>
-        ))
+          ))
         }
       </ul>
     </Feed>
