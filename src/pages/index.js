@@ -15,11 +15,11 @@ const Feed = styled.div`
     list-style-type: none;
     flex-direction: column;
     padding: 0;
-  }
-  ul li {
-    border-bottom: 1px solid #333333;
-    padding: 0;
-  }
+    li {
+      border-bottom: 1px solid #333333;
+      padding: 0;
+    }
+  } 
   .titulo {
     text-decoration: underline;
     font-family: "Roboto Mono", sans-serif;
