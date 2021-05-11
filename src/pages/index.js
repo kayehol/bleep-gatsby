@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import "typeface-roboto"
 import SEO from "../components/seo"
+import {Helmet} from "react-helmet"
 
 const Feed = styled.div`
   display: flex;
@@ -48,6 +49,10 @@ const Feed = styled.div`
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Bleep News" />
+    <Helmet>
+      <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101316396);</script>
+      <script async src="//static.getclicky.com/js"></script>
+    </Helmet>
     <Feed>
       <ul>
         {data.allMarkdownRemark.edges.map(post => (
